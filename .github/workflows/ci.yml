@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  typecheck:
+    name: TypeScript Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: abductr/package-lock.json
+
+      - name: Install dependencies
+        working-directory: abductr
+        run: npm ci
+
+      - name: TypeScript typecheck
+        working-directory: abductr
+        run: npx tsc --noEmit
+
+      - name: ESLint
+        working-directory: abductr
+        run: npm run lint
