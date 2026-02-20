@@ -182,7 +182,7 @@ function FlowArrow({ active }: { active: boolean }) {
 }
 
 // ─── DB node ──────────────────────────────────────────────────────────────────
-function DbNode({ saved, active }: { saved: number; active: boolean }) {
+function DbNode({ saved, active: _active }: { saved: number; active: boolean }) {
   return (
     <div
       className="flex-shrink-0 rounded-xl p-4 flex flex-col items-center gap-2 justify-center"

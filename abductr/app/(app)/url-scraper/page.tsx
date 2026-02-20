@@ -39,7 +39,7 @@ export default function UrlScraperPage() {
   const counterRef = useRef(0)
 
   const toggleSelect = (id: string) =>
-    setSelected(prev => { const s = new Set(prev); s.has(id) ? s.delete(id) : s.add(id); return s })
+    setSelected(prev => { const s = new Set(prev); if (s.has(id)) { s.delete(id) } else { s.add(id) } return s })
 
   const selectAll = () => setSelected(new Set(results.map(r => r.id)))
   const selectNone = () => setSelected(new Set())
@@ -267,7 +267,7 @@ export default function UrlScraperPage() {
                     Auto-Save to DB
                   </p>
                   <p className="text-[10px] text-[#334155]">
-                    Instantly beams each email to leads as it's found
+                    Instantly beams each email to leads as it&apos;s found
                   </p>
                 </div>
                 <button

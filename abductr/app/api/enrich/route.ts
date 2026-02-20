@@ -122,11 +122,10 @@ export async function POST(req: NextRequest) {
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(d)}\n\n`))
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.SUPABASE_SERVICE_ROLE_KEY!
-      ) as any
+      ) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
       try {
         // Fetch leads to enrich

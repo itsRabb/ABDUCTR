@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   ChevronUp, ChevronDown, ChevronsUpDown,
   ChevronLeft, ChevronRight,
-  Trash2, Pencil, Phone, Eye, EyeOff, Download,
+  Trash2, Pencil, Phone, Download,
   CheckCircle2, Circle
 } from 'lucide-react'
 import { Lead, computeBantScore, bantScoreLabel } from '@/lib/types'

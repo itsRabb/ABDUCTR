@@ -27,7 +27,10 @@ export default function LeadsPage() {
     setLoading(false)
   }, [])
 
-  useEffect(() => { fetchLeads() }, [fetchLeads])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchLeads()
+  }, [fetchLeads])
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this specimen?')) return

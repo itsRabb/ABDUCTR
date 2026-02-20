@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Info, ChevronDown } from 'lucide-react'
+import { X, Info } from 'lucide-react'
 import { Lead, LeadInsert } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
@@ -76,8 +76,10 @@ export function LeadModal({ lead, open, onClose, onSaved }: LeadModalProps) {
     if (lead) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { id, created_at, updated_at, ...rest } = lead
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm(rest)
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm(EMPTY)
     }
   }, [lead, open])
