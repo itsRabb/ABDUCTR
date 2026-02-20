@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # 🛸 ABDUCTR
 
@@ -32,7 +32,6 @@
 | 🗺️ **City Rotation** | Cycles through all US cities/states, resuming where it left off |
 | 🔮 **BANT Scoring** | Auto-calculated Budget/Authority/Need/Timing score per lead |
 | 🌐 **URL Email Harvester** | Paste any URL and extract all contact emails instantly |
-| 🕵️ **Hunter.io Integration** | One-click email discovery per lead |
 | 🛡️ **Proxy Shield** | Rotate free proxies automatically, refreshed every 30 minutes |
 | ⚡ **Supabase Realtime** | Live table updates via Supabase subscriptions |
 | 📤 **CSV Export** | One-click download of filtered leads |
@@ -46,57 +45,55 @@
 ### Prerequisites
 - Node.js 20+
 - A free [Supabase](https://supabase.com) project
-- (Optional) [Hunter.io](https://hunter.io) free API key for email lookup
 
 ### 1 — Clone & Install
 
-\\\ash
-git clone https://github.com/YOUR_USERNAME/abductr.git
-cd abductr
+```bash
+git clone https://github.com/itsRabb/ABDUCTR.git
+cd ABDUCTR/abductr
 npm install
-\\\
+```
 
 ### 2 — Environment
 
-\\\ash
+```bash
 cp .env.example .env.local
-\\\
+```
 
-Fill in .env.local:
+Fill in `.env.local`:
 
-\\\env
+```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-HUNTER_API_KEY=your-hunter-key           # optional
 
 # Leave blank on localhost (node-cron used automatically).
 # Set to your production domain to enable Supabase pg_cron mode.
 NEXT_PUBLIC_APP_URL=
-\\\
+```
 
 ### 3 — Database
 
 Open your **Supabase SQL Editor** and run:
 
-\\\
+```
 supabase/schema.sql
-\\\
+```
 
 Then in **Dashboard → Database → Replication**, add `leads`, `extracted_emails`, and `scrape_jobs` to the realtime publication.
 
 ### 4 — Run
 
-\\\ash
+```bash
 npm run dev
 # → http://localhost:3000
-\\\
+```
 
 ---
 
 ## 🗂️ Project Structure
 
-\\\
+```
 abductr/
 ├── app/
 │   ├── (app)/
@@ -109,8 +106,7 @@ abductr/
 │       ├── pipeline/           # 3-worker orchestrator (SSE streaming)
 │       ├── enrich/             # Batch enrich existing leads without emails
 │       ├── cron-control/       # Start / stop / status for background cron
-│       ├── proxies/            # Proxy list management
-│       └── hunter/             # Hunter.io email lookup
+│       └── proxies/            # Proxy list management
 ├── lib/
 │   ├── local-cron.ts           # node-cron singleton (survives hot-reload)
 │   ├── types.ts
@@ -119,11 +115,11 @@ abductr/
 ├── supabase/
 │   └── schema.sql              # Full DB schema (idempotent)
 └── .env.example
-\\\
+```
 
 ---
 
-## � Cold Email Pipeline
+## 📧 Cold Email Pipeline
 
 The `/pipeline` page runs a **3-worker chain** via SSE streaming:
 
@@ -249,7 +245,6 @@ Use for **legitimate B2B outreach only**. Respect Google's Terms of Service. Do 
 | **Animation** | Framer Motion |
 | **Toasts** | Sonner |
 | **Icons** | Lucide React |
-| **Email Discovery** | Hunter.io API |
 
 </div>
 
