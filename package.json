@@ -1,0 +1,11 @@
+{
+  "name": "abductr-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "cd abductr && npm run dev",
+    "build": "cd abductr && npm run build",
+    "start": "cd abductr && npm run start",
+    "lint": "cd abductr && npm run lint",
+    "type-check": "cd abductr && npx tsc --noEmit"
+  }
+}
